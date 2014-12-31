@@ -105,6 +105,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
 @synthesize approximateQualifierFormat = _approximateQualifierFormat;
 @synthesize presentTimeIntervalMargin = _presentTimeIntervalMargin;
 @synthesize usesAbbreviatedCalendarUnits = _usesAbbreviatedCalendarUnits;
+@synthesize usesHyperAbbreviatedCalendarUnits = _usesHyperAbbreviatedCalendarUnits;
 @synthesize usesApproximateQualifier = _usesApproximateQualifier;
 @synthesize usesIdiomaticDeicticExpressions = _usesIdiomaticDeicticExpressions;
 @synthesize numberOfSignificantUnits = _numberOfSignificantUnits;
@@ -221,6 +222,25 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
                 return singular ? NSLocalizedStringFromTable(@"min", @"FormatterKit", @"Minute Unit (Singular, Abbreviated)") : NSLocalizedStringFromTable(@"mins", @"FormatterKit", @"Minute Unit (Plural, Abbreviated)");
             case TTTCalendarUnitSecond:
                 return singular ? NSLocalizedStringFromTable(@"s", @"FormatterKit", @"Second Unit (Singular, Abbreviated)") : NSLocalizedStringFromTable(@"s", @"FormatterKit", @"Second Unit (Plural, Abbreviated)");
+            default:
+                return nil;
+        }
+    } else if (self.usesHyperAbbreviatedCalendarUnits) {
+        switch (unit) {
+            case TTTCalendarUnitYear:
+                return NSLocalizedStringFromTable(@"y", @"FormatterKit", @"Year Unit (Singular, Abbreviated)");
+            case TTTCalendarUnitMonth:
+                return NSLocalizedStringFromTable(@"mo", @"FormatterKit", @"Month Unit (Singular, Abbreviated)");
+            case TTTCalendarUnitWeek:
+                return NSLocalizedStringFromTable(@"w", @"FormatterKit", @"Week Unit (Singular, Abbreviated)");
+            case TTTCalendarUnitDay:
+                return NSLocalizedStringFromTable(@"d", @"FormatterKit", @"Day Unit (Singular, Abbreviated)");
+            case TTTCalendarUnitHour:
+                return NSLocalizedStringFromTable(@"h", @"FormatterKit", @"Hour Unit (Singular, Abbreviated)");
+            case TTTCalendarUnitMinute:
+                return NSLocalizedStringFromTable(@"m", @"FormatterKit", @"Minute Unit (Singular, Abbreviated)");
+            case TTTCalendarUnitSecond:
+                return NSLocalizedStringFromTable(@"s", @"FormatterKit", @"Second Unit (Singular, Abbreviated)");
             default:
                 return nil;
         }
@@ -541,6 +561,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     formatter.approximateQualifierFormat = [self.approximateQualifierFormat copyWithZone:zone];
     formatter.presentTimeIntervalMargin = self.presentTimeIntervalMargin;
     formatter.usesAbbreviatedCalendarUnits = self.usesAbbreviatedCalendarUnits;
+    formatter.usesHyperAbbreviatedCalendarUnits = self.usesHyperAbbreviatedCalendarUnits;
     formatter.usesApproximateQualifier = self.usesApproximateQualifier;
     formatter.usesIdiomaticDeicticExpressions = self.usesIdiomaticDeicticExpressions;
 
@@ -560,6 +581,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     self.approximateQualifierFormat = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(approximateQualifierFormat))];
     self.presentTimeIntervalMargin = [aDecoder decodeDoubleForKey:NSStringFromSelector(@selector(presentTimeIntervalMargin))];
     self.usesAbbreviatedCalendarUnits = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesAbbreviatedCalendarUnits))];
+    self.usesHyperAbbreviatedCalendarUnits = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesHyperAbbreviatedCalendarUnits))];
     self.usesApproximateQualifier = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesApproximateQualifier))];
     self.usesIdiomaticDeicticExpressions = [aDecoder decodeBoolForKey:NSStringFromSelector(@selector(usesIdiomaticDeicticExpressions))];
 
@@ -577,6 +599,7 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     [aCoder encodeObject:self.approximateQualifierFormat forKey:NSStringFromSelector(@selector(approximateQualifierFormat))];
     [aCoder encodeDouble:self.presentTimeIntervalMargin forKey:NSStringFromSelector(@selector(presentTimeIntervalMargin))];
     [aCoder encodeBool:self.usesAbbreviatedCalendarUnits forKey:NSStringFromSelector(@selector(usesAbbreviatedCalendarUnits))];
+    [aCoder encodeBool:self.usesHyperAbbreviatedCalendarUnits forKey:NSStringFromSelector(@selector(usesHyperAbbreviatedCalendarUnits))];
     [aCoder encodeBool:self.usesApproximateQualifier forKey:NSStringFromSelector(@selector(usesApproximateQualifier))];
     [aCoder encodeBool:self.usesIdiomaticDeicticExpressions forKey:NSStringFromSelector(@selector(usesIdiomaticDeicticExpressions))];
 }

@@ -122,6 +122,11 @@
  */
 @property (nonatomic, assign) BOOL usesAbbreviatedCalendarUnits;
 
+/**
+ Specifies whether to use extremely abbreviated calendar units to describe time intervals, for instance "w" instead of "weeks" in English. Defaults to `NO`.
+ */
+@property (nonatomic, assign) BOOL usesHyperAbbreviatedCalendarUnits;
+
 ///-------------------------
 /// @name Converting Objects
 ///-------------------------
