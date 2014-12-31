@@ -228,19 +228,19 @@ static inline NSComparisonResult NSCalendarUnitCompareSignificance(NSCalendarUni
     } else if (self.usesHyperAbbreviatedCalendarUnits) {
         switch (unit) {
             case TTTCalendarUnitYear:
-                return NSLocalizedStringFromTable(@"y", @"FormatterKit", @"Year Unit (Singular, Abbreviated)");
+                return NSLocalizedStringFromTable(@"y", @"FormatterKit", @"Year Unit (HyperAbbreviated)");
             case TTTCalendarUnitMonth:
-                return NSLocalizedStringFromTable(@"mo", @"FormatterKit", @"Month Unit (Singular, Abbreviated)");
+                return NSLocalizedStringFromTable(@"mo", @"FormatterKit", @"Month Unit (HyperAbbreviated)");
             case TTTCalendarUnitWeek:
-                return NSLocalizedStringFromTable(@"w", @"FormatterKit", @"Week Unit (Singular, Abbreviated)");
+                return NSLocalizedStringFromTable(@"w", @"FormatterKit", @"Week Unit (HyperAbbreviated)");
             case TTTCalendarUnitDay:
-                return NSLocalizedStringFromTable(@"d", @"FormatterKit", @"Day Unit (Singular, Abbreviated)");
+                return NSLocalizedStringFromTable(@"d", @"FormatterKit", @"Day Unit (HyperAbbreviated)");
             case TTTCalendarUnitHour:
-                return NSLocalizedStringFromTable(@"h", @"FormatterKit", @"Hour Unit (Singular, Abbreviated)");
+                return NSLocalizedStringFromTable(@"h", @"FormatterKit", @"Hour Unit (HyperAbbreviated)");
             case TTTCalendarUnitMinute:
-                return NSLocalizedStringFromTable(@"m", @"FormatterKit", @"Minute Unit (Singular, Abbreviated)");
+                return NSLocalizedStringFromTable(@"m", @"FormatterKit", @"Minute Unit (HyperAbbreviated)");
             case TTTCalendarUnitSecond:
-                return NSLocalizedStringFromTable(@"s", @"FormatterKit", @"Second Unit (Singular, Abbreviated)");
+                return NSLocalizedStringFromTable(@"s", @"FormatterKit", @"Second Unit (HyperAbbreviated)");
             default:
                 return nil;
         }
